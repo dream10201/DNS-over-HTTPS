@@ -2,11 +2,10 @@
 FILE=doh.list
 BLOCK_DNS=("dns.pub" "doh.360.cn" "dns.alidns.com" "doh.pub")
 checkDoh() {
-    curl --connect-timeout 1 -m 2 --doh-url "$1" -v "https://www.google.com"
-    if curl --connect-timeout 1 -m 2 --doh-url "$1" -v "https://www.google.com" 2>&1 | grep -q "was resolved."; then
-        return 0
-    else
+    if curl -sS --connect-timeout 1 -m 2 --doh-url "$1" "https://www.google.com/ncr" 2>&1 | grep -q "Resolving timed out"; then
         return 1
+    else
+        return 0
     fi
 }
 url_tmp=$(mktemp)
