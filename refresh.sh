@@ -2,6 +2,7 @@
 FILE=doh.list
 BLOCK_DNS=("dns.pub" "doh.360.cn" "dns.alidns.com" "doh.pub")
 checkDoh() {
+    curl --connect-timeout 1 -m 2 --doh-url "$1" -v "https://www.google.com"
     if curl --connect-timeout 1 -m 2 --doh-url "$1" -v "https://www.google.com" 2>&1 | grep -q "was resolved."; then
         return 0
     else
@@ -22,6 +23,7 @@ for url in ${urls}; do
     if ! checkDoh "$url"; then
         continue
     fi
+    echo $url
     echo $url >>${url_tmp}
 done
 cat ${url_tmp} | sort | uniq >${FILE}
