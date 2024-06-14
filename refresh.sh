@@ -2,7 +2,7 @@
 FILE=doh.list
 BLOCK_DNS=("dns.pub" "doh.360.cn" "dns.alidns.com" "doh.pub")
 checkDoh() {
-    local resp=$(curl -sS --connect-timeout 5 -m 5 --doh-url "$1" "https://www.google.com/ncr")
+    local resp=$(curl -sS --connect-timeout 5 -m 5 --doh-url "$1" "https://www.google.com/ncr" 2>/dev/null)
     if [ -z "${resp}" ]; then
         return 1
     else
