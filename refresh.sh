@@ -24,4 +24,4 @@ for url in ${urls}; do
     fi
     echo $url >>${url_tmp}
 done
-echo ${url_tmp} | sort | uniq >${FILE}
+cat ${url_tmp} | sort | uniq >${FILE}
