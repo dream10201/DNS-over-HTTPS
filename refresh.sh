@@ -8,7 +8,7 @@ checkDoh() {
         return 1
     fi
 }
-#url_tmp=$(mktemp)
+url_tmp=$(mktemp)
 urls=$(curl -s "https://github.com/curl/curl/wiki/DNS-over-HTTPS" | grep -oP 'href="\Khttps://[^"]+')
 urls+=" "
 urls+=$(curl -s "https://adguard-dns.io/kb/zh-CN/general/dns-providers/" | grep -oP '<tr><td>DNS-over-HTTPS(.*?)</td><td><code>\Khttps://[^<]+')
