@@ -1,13 +1,17 @@
 #!/bin/bash
 FILE=doh.list
 BLOCK_DNS=("dns.pub" "doh.360.cn" "dns.alidns.com" "doh.pub")
+
+CHECK_LINK=("https://www.google.com/ncr" "https://x.com" "https://www.facebook.com" "https://www.youtube.com")
 checkDoh() {
-    local resp=$(curl -sS --connect-timeout 5 -m 5 --doh-url "$1" "https://www.google.com/ncr" 2>/dev/null)
-    if [ -z "${resp}" ]; then
+    local i=0
+    for link in "${CHECK_LINK[@]}"; do
+        curl -sS --connect-timeout 5 -m 5 -v --doh-url "$1" "${link}" &>/dev/null || ((i++))
+    done
+    if [[ "${i}" -gt 0 ]]; then
         return 1
-    else
-        return 0
     fi
+    return 0
 }
 url_tmp=$(mktemp)
 urls=$(curl -s "https://github.com/curl/curl/wiki/DNS-over-HTTPS" | grep -oP 'href="\Khttps://[^"]+')
