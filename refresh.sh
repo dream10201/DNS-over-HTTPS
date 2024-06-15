@@ -4,13 +4,9 @@ BLOCK_DNS=("dns.pub" "doh.360.cn" "dns.alidns.com" "doh.pub")
 
 CHECK_LINK=("https://www.google.com/ncr" "https://x.com" "https://www.facebook.com" "https://www.youtube.com" "https://www.baidu.com")
 checkDoh() {
-    local i=0
     for link in "${CHECK_LINK[@]}"; do
-        curl -sS --connect-timeout 5 -m 5 -v --doh-url "$1" "${link}" &>/dev/null || ((i++))
+        curl -sS --connect-timeout 5 -m 5 -v --doh-url "$1" "${link}" &>/dev/null || return 1
     done
-    if [[ "${i}" -gt 0 ]]; then
-        return 1
-    fi
     return 0
 }
 url_tmp=$(mktemp)
