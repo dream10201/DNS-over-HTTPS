@@ -20,10 +20,14 @@ for url in ${urls}; do
     if [[ " ${BLOCK_DNS[*]} " == *" $domain "* ]]; then
         continue
     fi
+    echo "$url"
     if ! checkDoh "$url"; then
+        echo -ne " \033[31m\xE2\x9D\x8C\033[0m"
+        echo ""
         continue
     fi
-    echo "$url"
+    echo -ne " \033[32m\xE2\x9C\x85\033[0m"
+    echo ""
     echo ${url%/} >>${url_tmp}
 done
 cat ${url_tmp} | sort | uniq >${FILE}
