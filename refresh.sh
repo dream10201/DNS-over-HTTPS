@@ -23,7 +23,7 @@ for url in ${urls}; do
     if ! checkDoh "$url"; then
         continue
     fi
-    echo $url
-    echo $url >>${url_tmp}
+    echo "$url"
+    echo ${url%/} >>${url_tmp}
 done
 cat ${url_tmp} | sort | uniq >${FILE}
