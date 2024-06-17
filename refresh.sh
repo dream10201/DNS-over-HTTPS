@@ -22,7 +22,7 @@ for url in ${urls}; do
     fi
     echo -n "$url"
     if ! checkDoh "$url"; then
-        echo -ne " \033[31m\xE2\x9D\x8C\033[0m"
+        echo -ne " \033[31m\xE2\x9D\x8E\033[0m"
         echo ""
         continue
     fi
