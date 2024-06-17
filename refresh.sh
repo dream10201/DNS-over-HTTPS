@@ -20,7 +20,7 @@ for url in ${urls}; do
     if [[ " ${BLOCK_DNS[*]} " == *" $domain "* ]]; then
         continue
     fi
-    echo "$url"
+    echo -n "$url"
     if ! checkDoh "$url"; then
         echo -ne " \033[31m\xE2\x9D\x8C\033[0m"
         echo ""
