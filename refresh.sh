@@ -4,11 +4,25 @@ BLOCK_DNS=("dns.pub" "doh.360.cn" "dns.alidns.com" "doh.pub")
 
 CHECK_LINK=("https://www.google.com/ncr" "https://x.com" "https://www.facebook.com" "https://www.youtube.com" "https://www.baidu.com")
 checkDoh() {
+    local pids=()
+    local fail=0
     for link in "${CHECK_LINK[@]}"; do
-        curl -sS --connect-timeout 10 -m 20 -v --doh-url "$1" "${link}" &>/dev/null || return 1
+        (curl -sS --connect-timeout 2 -m 4 --doh-url "$1" "${link}" &>/dev/null) &
+        pids+=($!)
     done
-    return 0
+    while [ ${#pids[@]} -gt 0 ]; do
+        if ! wait -n; then
+            fail=1
+            break
+        fi
+    done
+    if [ "$fail" -eq 0 ]; then
+        return 0
+    else
+        return 1
+    fi
 }
+
 url_tmp=$(mktemp)
 urls=$(curl -s "https://github.com/curl/curl/wiki/DNS-over-HTTPS" | grep -oP 'href="\Khttps://[^"]+')
 urls+=" "
