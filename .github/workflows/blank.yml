@@ -12,10 +12,7 @@ jobs:
       - name: refresh
         run: |
           sudo apt update
-          sudo apt upgrade -y
           sudo apt install dnsutils -y
-          echo "================================================="
-          dig --help
           echo "================================================="
           dig @doh.beauty sdfsdf.baidu.com +https +timeout=1
           echo "================================================="
