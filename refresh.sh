@@ -3,6 +3,13 @@ FILE=doh.list
 BLOCK_DNS=("dns.pub" "doh.360.cn" "dns.alidns.com" "doh.pub")
 
 CHECK_LINK=("https://www.google.com/ncr" "https://x.com" "https://www.facebook.com" "https://www.youtube.com" "https://www.baidu.com")
+
+echo_err(){
+    echo  -ne " \033[31m\xE2\x9D\x8C\033[0m"
+}
+echo_success(){
+    echo -ne " \033[32m\xE2\x9C\x85\033[0m"
+}
 checkDoh() {
     local pids=()
     local fail=0
@@ -15,7 +22,6 @@ checkDoh() {
             fail=1
             break
         fi
-        # 从数组中移除已完成的子进程
         for i in "${!pids[@]}"; do
             if ! kill -0 "${pids[i]}" 2>/dev/null; then
                 unset 'pids[i]'
@@ -44,11 +50,11 @@ for url in ${urls}; do
     fi
     echo -n "$url"
     if ! checkDoh "$url"; then
-        echo -ne " \033[31m\xE2\x9D\x8C\033[0m"
+        echo_err
         echo ""
         continue
     fi
-    echo -ne " \033[32m\xE2\x9C\x85\033[0m"
+    echo_success
     echo ""
     echo ${url%/} >>${url_tmp}
 done
