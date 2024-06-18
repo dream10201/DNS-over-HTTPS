@@ -15,13 +15,21 @@ checkDoh() {
             fail=1
             break
         fi
+        # 从数组中移除已完成的子进程
+        for i in "${!pids[@]}"; do
+            if ! kill -0 "${pids[i]}" 2>/dev/null; then
+                unset 'pids[i]'
+            fi
+        done
     done
     if [ "$fail" -eq 0 ]; then
         return 0
     else
+        kill "${pids[@]}" &>/dev/null
         return 1
     fi
 }
+
 
 url_tmp=$(mktemp)
 urls=$(curl -s "https://github.com/curl/curl/wiki/DNS-over-HTTPS" | grep -oP 'href="\Khttps://[^"]+')
