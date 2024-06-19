@@ -11,6 +11,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: refresh
         run: |
-          echo -e "nameserver 1.1.1.1\nnameserver 1.0.0.1" >/etc/resolv.conf
+          sudo echo -e "nameserver 1.1.1.1\nnameserver 1.0.0.1" >/etc/resolv.conf
           bash refresh.sh
       - uses: stefanzweifel/git-auto-commit-action@v5
