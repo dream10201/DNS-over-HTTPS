@@ -42,7 +42,7 @@ urls=$(curl -s "https://github.com/curl/curl/wiki/DNS-over-HTTPS" | grep -oP 'hr
 urls+=" "
 urls+=$(curl -s "https://adguard-dns.io/kb/zh-CN/general/dns-providers/" | grep -oP '<tr><td>DNS-over-HTTPS(.*?)</td><td><code>\Khttps://[^<]+')
 
-urls=$(echo $urls | tr ' ' '\n' | sort -u | tr '\n' ' ')
+urls=$(echo $urls | tr ' ' '\n' | sort -u | uniq)
 for url in ${urls}; do
     domain=$(echo "$url" | awk -F/ '{print $3}')
     if [[ " ${BLOCK_DNS[*]} " == *" $domain "* ]]; then
