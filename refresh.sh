@@ -2,7 +2,7 @@
 FILE=doh.list
 BLOCK_DNS=("dns.pub" "doh.360.cn" "dns.alidns.com" "doh.pub")
 
-CHECK_LINK=("https://www.google.com/ncr" "https://x.com" "https://www.baidu.com")
+CHECK_LINK=("https://www.google.com/ncr" "https://www.10010.com" "https://www.qq.com" "https://www.baidu.com")
 
 echo_err(){
     echo  -ne " \033[31m\xE2\x9D\x8C\033[0m"
