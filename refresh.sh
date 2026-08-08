@@ -3,7 +3,7 @@ FILE=doh.list
 JOBS=10   # 同时检测的 DoH 服务器数量
 BLOCK_DNS=("dns.pub" "doh.360.cn" "dns.alidns.com" "doh.pub")
 
-CHECK_LINK=("https://www.google.com/ncr" "https://www.10010.com" "https://www.qq.com" "https://www.baidu.com")
+CHECK_LINK=("https://www.google.com/ncr" "https://www.10010.com" "https://github.com" "https://www.baidu.com")
 
 url_tmp=$(mktemp)
 src_tmp=$(mktemp)
