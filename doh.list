@@ -9,7 +9,6 @@ https://adguard.meddy94.de/dns-query
 https://adguard.shoupperuser.com/dns-query
 https://ae-fuj-w-p-1.nashkan.net/dns-query
 https://ae-fuj-w-p-2.nashkan.net/dns-query
-https://ae-fuj-w-p-3.nashkan.net/dns-query
 https://ag.apollohct.com/dns-query
 https://agh.dshubham.xyz/dns-query
 https://all.dns.mullvad.net/dns-query
@@ -28,6 +27,7 @@ https://de01.dns4me.net
 https://dns.a47.me/dns-query
 https://dns.aa.net.uk/dns-query
 https://dns.adguard-dns.com/dns-query
+https://dns.anon.no/dns-query
 https://dns.aquilenet.fr/dns-query
 https://dns.asterimoon.com/dns-query
 https://dns.belnet.be/dns-query
@@ -44,11 +44,13 @@ https://dns.datenquark.de/dns-query
 https://dns.decky.eu/dns-query
 https://dns.dev-umbrellagov.com/dns-query
 https://dns.dnshome.de/dns-query
+https://dns.easyhns.com/dns-query
 https://dns.envs.net/dns-query
 https://dns.farshidhakimy.de/dns-query
 https://dns.flatuslifir.is/dns-query
 https://dns.floriantinney.de/dns-query
 https://dns.furrix.zone/dns-query
+https://dns.gamban.com/dns-query
 https://dns.glf.wtf/dns-query
 https://dns.google/dns-query
 https://dns.guard.io/dns-query
@@ -88,7 +90,6 @@ https://dns.simplylinux.ch/dns-query
 https://dns.skrep.eu/dns-query
 https://dns.slinkyman.net/dns-query
 https://dns.smartguard.io/dns-query
-https://dns.startupstack.tech/dns-query
 https://dns.surfsharkdns.com/dns-query
 https://dns.switch.ch/dns-query
 https://dns.t53.de/dns-query
@@ -139,7 +140,6 @@ https://doh.tiar.app/dns-query
 https://doh.umbrella.com/dns-query
 https://doh.viatech.com.tw/dns-query
 https://doth.huque.com/dns-query
-https://dukun.de/dns-query
 https://es-ma.foxyfy.net/dns-query
 https://extended.dns.mullvad.net/dns-query
 https://family.adguard-dns.com/dns-query
@@ -155,13 +155,14 @@ https://freedns.controld.com/p2
 https://freedns.controld.com/p3
 https://freedns.controld.com/uncensored
 https://freedns.controld.com/x-1hosts-lite
-https://freedom.mydns.network/dns-query
-https://gb-lon-w-p-2.nashkan.net/dns-query
+https://freedns.controld.com/x-1hosts-mini
+https://freedns.controld.com/x-oisd
 https://gibblets.top/dns-query
 https://glacius.top/dns-query
 https://hard.dnsforge.de/dns-query
 https://helios.plan9-dns.com/dns-query
 https://hnsdoh.com/dns-query
+https://ibuki.cgnat.net/dns-query
 https://ie01.dns4me.net
 https://imperio.top/dns-query
 https://juuri.hagezi.org/dns-query
@@ -189,7 +190,6 @@ https://rfree2.blue-shield.at/dns-query
 https://ro-buc-w-p-1.nashkan.net/dns-query
 https://root.hagezi.org/dns-query
 https://sa01.dns4me.net
-https://safeservedns.com/dns-query
 https://security.cloudflare-dns.com/dns-query
 https://sg-w-p-1.nashkan.net/dns-query
 https://sg01.dns4me.net
@@ -200,8 +200,8 @@ https://uk01.dns4me.net
 https://unfiltered.adguard-dns.com/dns-query
 https://unfiltered.joindns4.eu/dns-query
 https://us-chi-w-f-1.nashkan.net/dns-query
+https://us-chi-w-p-1.nashkan.net/dns-query
 https://us-jac-w-f-1.nashkan.net/dns-query
-https://us-jac-w-p-1.nashkan.net/dns-query
 https://us-kan-w-p-1.nashkan.net/dns-query
 https://us-nyc-w-p-1.nashkan.net/dns-query
 https://us01.dns4me.net
