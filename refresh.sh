@@ -1,9 +1,9 @@
 #!/bin/bash
 FILE=doh.list
-JOBS=10   # 同时检测的 DoH 服务器数量
+JOBS=20   # 同时检测的 DoH 服务器数量
 BLOCK_DNS=("dns.pub" "doh.360.cn" "dns.alidns.com" "doh.pub")
 
-CHECK_LINK=("https://www.google.com/ncr" "https://www.10010.com" "https://github.com" "https://www.baidu.com")
+CHECK_LINK=("https://www.google.com/ncr" "https://store.steampowered.com" "https://github.com" "https://www.baidu.com")
 
 url_tmp=$(mktemp)
 src_tmp=$(mktemp)
@@ -32,21 +32,43 @@ checkDoh() {
 checkOne() {
     local url=$1
     if checkDoh "$url"; then
-        echo "${url%/}" >>"$url_tmp"
+        echo "$url" >>"$url_tmp"
         printf '%s \033[32m\xE2\x9C\x85\033[0m\n' "$url"
     else
         printf '%s \033[31m\xE2\x9D\x8C\033[0m\n' "$url"
     fi
 }
 
-# 并行抓取两个来源的 DoH 列表
-curl -s "https://github.com/curl/curl/wiki/DNS-over-HTTPS" |
-    grep -oP 'href="\Khttps://[^"]+' >>"$src_tmp" &
-curl -s "https://adguard-dns.io/kb/zh-CN/general/dns-providers/" |
-    grep -oP '<tr><td>DNS-over-HTTPS(.*?)</td><td><code>\Khttps://[^<]+' >>"$src_tmp" &
+# 从 DNSCrypt stamp 中解析出普通 DoH(协议 0x02)地址
+decodeStamps() {
+    python3 -c '
+import sys, base64
+for line in sys.stdin:
+    s = line.strip()[7:]
+    b = base64.urlsafe_b64decode(s + "=" * (-len(s) % 4))
+    if b[0] != 2:
+        continue
+    i = 9
+    i += 1 + b[i]
+    while b[i] & 0x80:
+        i += 1 + (b[i] & 0x7f)
+    i += 1 + b[i]
+    host = b[i + 1:i + 1 + b[i]].decode()
+    i += 1 + b[i]
+    print("https://" + host + b[i + 1:i + 1 + b[i]].decode())
+'
+}
+
+# 并行抓取各来源的 DoH 列表
+curl -fsSL -m 30 "https://github.com/curl/curl/wiki/DNS-over-HTTPS" |
+    grep -oP 'href="\K(https://[^"]+)(?="[^>]*>\1</a>)' >>"$src_tmp" &
+curl -fsSL -m 30 "https://adguard-dns.io/kb/zh-CN/general/dns-providers/" |
+    grep -oP 'DNS-over-HTTPS(</td>)?<td><code>\Khttps://[^<]+' >>"$src_tmp" &
+curl -fsSL -m 30 "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md" |
+    grep '^sdns://Ag' | decodeStamps >>"$src_tmp" &
 wait
 
-mapfile -t urls < <(grep -v "github" "$src_tmp" | sort -u)
+mapfile -t urls < <(grep -v "github" "$src_tmp" | sed 's#/$##' | sort -u)
 if ((${#urls[@]} == 0)); then
     echo "获取 DoH 服务器列表失败" >&2
     exit 1
