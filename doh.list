@@ -73,6 +73,7 @@ https://cloudflare-dns.com/dns-query
 https://common.dot.dns.yandex.net/dns-query
 https://cph01.dnscry.pt/dns-query
 https://cpt01.dnscry.pt/dns-query
+https://cpt02.dnscry.pt/dns-query
 https://cvt01.dnscry.pt/dns-query
 https://dac01.dnscry.pt/dns-query
 https://de01.dns4me.net
@@ -165,8 +166,6 @@ https://dns.simplylinux.ch/dns-query
 https://dns.skrep.eu/dns-query
 https://dns.slinkyman.net/dns-query
 https://dns.smartguard.io/dns-query
-https://dns.stirringphoto.com/dns-query
-https://dns.surfsharkdns.com/dns-query
 https://dns.switch.ch/dns-query
 https://dns.t53.de/dns-query
 https://dns.telekom.de/dns-query
@@ -196,6 +195,7 @@ https://dnslow.me/dns-query
 https://dnsvps.familiamv.net/dns-query
 https://dog.dns.qwer.pw/dns-query
 https://doh-dilution-to-upstreams-adguardhome.nicolas-dorriere.fr/dns-query
+https://doh.18bit.cn/dns-query
 https://doh.aaaab3n.moe/dns-query-114514
 https://doh.angry.im/dns-query
 https://doh.applied-privacy.net/query
@@ -229,6 +229,7 @@ https://doh.sz-dns.com/dns-query
 https://doh.tiar.app/dns-query
 https://doh.umbrella.com/dns-query
 https://doh.viatech.com.tw/dns-query
+https://doh64.dns4all.eu/dns-query
 https://doth.huque.com/dns-query
 https://dtw01.dnscry.pt/dns-query
 https://dub01.dnscry.pt/dns-query
@@ -245,7 +246,6 @@ https://family.cloudflare-dns.com/dns-query
 https://family.dns.dremaxx.com/dns-query
 https://family.dns.mullvad.net/dns-query
 https://family.dot.dns.yandex.net/dns-query
-https://family.mydns.network/dns-query
 https://fet02.dnscry.pt/dns-query
 https://filter.dns.yunzheng.space/dns-query
 https://fnt01.dnscry.pt/dns-query
@@ -260,7 +260,10 @@ https://freedns.controld.com/p3
 https://freedns.controld.com/uncensored
 https://freedns.controld.com/x-1hosts-lite
 https://freedns.controld.com/x-1hosts-mini
-https://freedns.controld.com/x-hagezi-proplus
+https://freedns.controld.com/x-1hosts-pro
+https://freedns.controld.com/x-adguard
+https://freedns.controld.com/x-devdan
+https://freedom.mydns.network/dns-query
 https://gb-lon-w-p-2.nashkan.net/dns-query
 https://gdn01.dnscry.pt/dns-query
 https://geg01.dnscry.pt/dns-query
@@ -283,6 +286,7 @@ https://iev02.dnscry.pt/dns-query
 https://ind01.dnscry.pt/dns-query
 https://ist01.dnscry.pt/dns-query
 https://jax01.dnscry.pt/dns-query
+https://jhb01.dnscry.pt/dns-query
 https://jkt01.dnscry.pt/dns-query
 https://jnb01.dnscry.pt/dns-query
 https://juuri.hagezi.org/dns-query
@@ -302,14 +306,12 @@ https://man01.dnscry.pt/dns-query
 https://masters-of-cloud.de/dns-query
 https://max.rethinkdns.com/dns-query
 https://mci01.dnscry.pt/dns-query
-https://mel01.dnscry.pt/dns-query
 https://mia01.dnscry.pt/dns-query
 https://mil01.dnscry.pt/dns-query
 https://moe01.dnscry.pt/dns-query
 https://mow01.dnscry.pt/dns-query
 https://mozilla.cloudflare-dns.com/dns-query
 https://mrs01.dnscry.pt/dns-query
-https://mru02.dnscry.pt/dns-query
 https://muc01.dnscry.pt/dns-query
 https://naw01.dnscry.pt/dns-query
 https://ncl01.dnscry.pt/dns-query
@@ -333,8 +335,6 @@ https://par01.dnscry.pt/dns-query
 https://paranoia.mydns.network/dns-query
 https://pdx01.dnscry.pt/dns-query
 https://ped01.dnscry.pt/dns-query
-https://per.adfilter.net/dns-query
-https://per01.dnscry.pt/dns-query
 https://phx01.dnscry.pt/dns-query
 https://pidoh.mapledns.net/dns-query
 https://pooblet.co.za/dns-query
