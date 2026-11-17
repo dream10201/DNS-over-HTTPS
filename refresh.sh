@@ -2,7 +2,7 @@
 FILE=doh.list
 JOBS=20   # 同时检测的 DoH 服务器数量
 BLOCK_DNS=("dns.pub" "doh.360.cn" "dns.alidns.com" "doh.pub" "223.5.5.5" "223.6.6.6" "1.12.12.12" "182.40.70.12")
-BLOCK_KEYWORDS=("family")
+BLOCK_KEYWORDS=("family" "clear" "clean" "adblock")
 
 CHECK_LINK=("https://www.google.com/ncr" "https://store.steampowered.com" "https://github.com" "https://www.baidu.com")
 
