@@ -2,6 +2,7 @@
 FILE=doh.list
 JOBS=20   # 同时检测的 DoH 服务器数量
 BLOCK_DNS=("dns.pub" "doh.360.cn" "dns.alidns.com" "doh.pub" "223.5.5.5" "223.6.6.6" "1.12.12.12" "182.40.70.12")
+BLOCK_KEYWORDS=("family")
 
 CHECK_LINK=("https://www.google.com/ncr" "https://store.steampowered.com" "https://github.com" "https://www.baidu.com")
 
@@ -68,7 +69,7 @@ curl -fsSL -m 30 "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/
     grep '^sdns://Ag' | decodeStamps >>"$src_tmp" &
 wait
 
-mapfile -t urls < <(grep -v "github" "$src_tmp" | sed 's#/$##' | sort -u)
+mapfile -t urls < <(grep -v "github" "$src_tmp" | grep -viFf <(printf '%s\n' "${BLOCK_KEYWORDS[@]}") | sed 's#/$##' | sort -u)
 if ((${#urls[@]} == 0)); then
     echo "获取 DoH 服务器列表失败" >&2
     exit 1
